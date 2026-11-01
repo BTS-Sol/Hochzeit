@@ -183,10 +183,10 @@ Es fehlen nur noch drei Schritte:
 **1.** Auf github.com ein neues, leeres Repository anlegen — ohne Haken bei
 „Add a README file", sonst gibt es beim ersten Push einen Konflikt.
 
-**2.** Verbinden und hochladen (`BENUTZERNAME` und `NAME` ersetzen):
+**2.** Verbinden und hochladen (bereits erledigt):
 
 ```bash
-git -C "C:/Users/yanni/Projekte/hochzeit-website" remote add origin https://github.com/BENUTZERNAME/NAME.git
+git -C "C:/Users/yanni/Projekte/hochzeit-website" remote add origin https://github.com/BTS-Sol/Hochzeit.git
 ```
 
 ```bash
@@ -195,7 +195,7 @@ git -C "C:/Users/yanni/Projekte/hochzeit-website" push -u origin main
 
 **3.** Im Repository unter **Settings → Pages** bei *Source* `Deploy from a
 branch` wählen, Branch `main`, Ordner `/ (root)`. Nach etwa einer Minute liegt
-die Seite unter `https://BENUTZERNAME.github.io/NAME/`.
+die Seite unter `https://bts-sol.github.io/Hochzeit/`.
 
 Danach die drei `example.github.io`-Platzhalter in `index.html` auf diese
 Adresse ändern und erneut hochladen — davon hängt das Vorschaubild beim Teilen
