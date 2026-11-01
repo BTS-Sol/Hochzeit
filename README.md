@@ -171,34 +171,56 @@ Wenn ihr das Deckblatt tauscht, denkt auch an `og:image` im Kopf von
 
 ## Veröffentlichen mit GitHub Pages
 
-> **Vorher wichtig:** Dieser Ordner liegt in Google Drive. Drive synchronisiert
-> auch den versteckten `.git`-Ordner und schreibt dabei mitten in laufende
-> Git-Vorgänge — das beschädigt Repositories regelmäßig. Kopiert den Ordner
-> vor `git init` an einen Ort außerhalb von Drive (z. B. `C:\Projekte\hochzeit`)
-> und arbeitet dort weiter. Die Drive-Fassung bleibt als Sicherung liegen.
+Das Repository ist bereits angelegt — nicht hier, sondern unter
+`C:/Users/yanni/Projekte/hochzeit-website`. Grund: Dieser Ordner liegt in Google Drive, und Drive
+synchronisiert auch den versteckten `.git`-Ordner. Dabei schreibt es mitten in
+laufende Git-Vorgänge und beschädigt Repositories regelmäßig.
+**Die Fassung in `Projekte` ist ab jetzt die maßgebliche**, diese hier ist die
+Sicherung.
+
+Es fehlen nur noch drei Schritte:
+
+**1.** Auf github.com ein neues, leeres Repository anlegen — ohne Haken bei
+„Add a README file", sonst gibt es beim ersten Push einen Konflikt.
+
+**2.** Verbinden und hochladen (`BENUTZERNAME` und `NAME` ersetzen):
 
 ```bash
-git init
-git add .
-git commit -m "Hochzeitsseite"
-git branch -M main
-git remote add origin https://github.com/BENUTZERNAME/hochzeit.git
-git push -u origin main
+git -C "C:/Users/yanni/Projekte/hochzeit-website" remote add origin https://github.com/BENUTZERNAME/NAME.git
 ```
 
-Dann im Repository unter **Settings → Pages** bei *Source* `Deploy from a
-branch` wählen, Branch `main` und Ordner `/ (root)`. Nach etwa einer Minute
-liegt die Seite unter `https://BENUTZERNAME.github.io/hochzeit/`.
+```bash
+git -C "C:/Users/yanni/Projekte/hochzeit-website" push -u origin main
+```
 
-`index.html` muss dafür so heißen und im Hauptordner liegen — GitHub Pages
-sucht genau diese Datei.
+**3.** Im Repository unter **Settings → Pages** bei *Source* `Deploy from a
+branch` wählen, Branch `main`, Ordner `/ (root)`. Nach etwa einer Minute liegt
+die Seite unter `https://BENUTZERNAME.github.io/NAME/`.
+
+Danach die drei `example.github.io`-Platzhalter in `index.html` auf diese
+Adresse ändern und erneut hochladen — davon hängt das Vorschaubild beim Teilen
+ab.
 
 > Ein öffentliches Repository ist für alle lesbar, auch die Adresse der
-> Location und eine eingetragene E-Mail-Adresse. Für ein privates Repository
-> braucht GitHub Pages einen bezahlten Plan; die Alternative ist, die Seite
-> öffentlich zu stellen und den Link einfach nicht zu streuen.
+> Location. Für ein privates Repository braucht GitHub Pages einen bezahlten
+> Plan; die Alternative ist, die Seite öffentlich zu stellen und den Link
+> einfach nicht zu streuen.
 
----
+### Spätere Änderungen
+
+```bash
+git -C "C:/Users/yanni/Projekte/hochzeit-website" add -A
+```
+
+```bash
+git -C "C:/Users/yanni/Projekte/hochzeit-website" commit -m "Menue ergaenzt"
+```
+
+```bash
+git -C "C:/Users/yanni/Projekte/hochzeit-website" push
+```
+
+GitHub Pages baut die Seite danach von allein neu.
 
 ## Was die Seite sonst noch kann
 
