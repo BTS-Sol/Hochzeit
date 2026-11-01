@@ -1,0 +1,8 @@
+# Textdateien im Repository einheitlich mit LF ablegen.
+# Lokal darf Windows weiter CRLF verwenden - das regelt Git selbst.
+* text=auto
+
+# Bilder niemals als Text behandeln
+*.png  binary
+*.jpg  binary
+*.webp binary
