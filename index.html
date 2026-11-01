@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<!--
+  ════════════════════════════════════════════════════════════════
+  Hochzeitsseite Isabelle & Yannis
+
+  ➜ Datum, Uhrzeit und RSVP-Kontakt stehen gesammelt ganz oben in
+    js/main.js im Block "EUER HOCHZEITS-SETUP". Nur dort ändern.
+  ➜ Tagesablauf und Menü: siehe Abschnitte #ablauf und #essen weiter
+    unten. Dort liegen fertige Vorlagen als HTML-Kommentar bereit.
+  ➜ Alles Weitere steht in README.md.
+  ════════════════════════════════════════════════════════════════
+-->
+
+<title>Isabelle &amp; Yannis — Wir heiraten</title>
+<meta name="description" content="Isabelle und Yannis heiraten im Lavenda am See in Berlin. Alle Infos zu Ablauf, Anfahrt, Parken und Zusage findet ihr hier.">
+<meta name="theme-color" content="#fcfbf9">
+<meta name="color-scheme" content="light">
+
+<!-- Vorschaubild beim Teilen (WhatsApp, iMessage ...) -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="de_DE">
+<meta property="og:title" content="Isabelle &amp; Yannis — Wir heiraten">
+<meta property="og:description" content="Wir laden euch herzlich ein, unseren großen Tag mit uns zu feiern. Lavenda am See, Berlin.">
+<!-- TODO: nach dem Veröffentlichen auf die echte Adresse ändern -->
+<meta property="og:url" content="https://example.github.io/hochzeit/">
+<meta property="og:image" content="https://example.github.io/hochzeit/images/lavenda1.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="canonical" href="https://example.github.io/hochzeit/">
+
+<!-- Favicon: zwei Ringe, direkt eingebettet (keine extra Datei nötig) -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='12' cy='19' r='8' fill='none' stroke='%239b88ed' stroke-width='2.5'/%3E%3Ccircle cx='21' cy='19' r='8' fill='none' stroke='%23c5a059' stroke-width='2.5'/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&amp;family=Great+Vibes&amp;family=Montserrat:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css?v=4">
+
+<noscript>
+  <!-- Ohne JavaScript: Deckblatt überspringen, Inhalt sofort zeigen -->
+  <style>
+    #gate { display: none !important; }
+    #main { display: block !important; opacity: 1 !important; }
+    .reveal { opacity: 1 !important; transform: none !important; }
+  </style>
+</noscript>
+</head>
+
+<body>
+
+<a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+<!-- Gezeichnete Symbole für den Zeitstrahl. Unsichtbar; werden unten per <use> geholt. -->
+<svg class="ico-sprite" aria-hidden="true" focusable="false"><defs>
+
+  <symbol id="ico-bogen" viewBox="0 0 32 32">
+    <path d="M8 27V16a8 8 0 0 1 16 0v11"/><path d="M5 27h22"/>
+  </symbol>
+
+  <symbol id="ico-ringe" viewBox="0 0 32 32">
+    <circle cx="12.5" cy="19.5" r="7"/><circle cx="20.5" cy="19.5" r="7"/>
+    <path d="M20.5 7.6l1.9 2.7-1.9 2.5-1.9-2.5z"/>
+  </symbol>
+
+  <symbol id="ico-sekt" viewBox="0 0 32 32">
+    <g transform="rotate(8 9 24)">
+      <path d="M5 7h8l-1.1 7.2a2.9 2.9 0 0 1-5.8 0z"/><path d="M9 14.9v9.1M6.2 24h5.6"/>
+    </g>
+    <g transform="rotate(-8 23 24)">
+      <path d="M19 7h8l-1.1 7.2a2.9 2.9 0 0 1-5.8 0z"/><path d="M23 14.9v9.1M20.2 24h5.6"/>
+    </g>
+    <circle cx="16" cy="4.6" r=".9" fill="currentColor" stroke="none"/>
+  </symbol>
+
+  <symbol id="ico-torte" viewBox="0 0 32 32">
+    <path d="M6 26.5v-6.5h20v6.5z"/><path d="M9 20v-6h14v6"/><path d="M4 26.5h24"/>
+    <path d="M16 14v-1.6"/>
+    <path d="M16 12.4s-2.2-1.4-2.2-2.9a1.3 1.3 0 0 1 2.2-.9 1.3 1.3 0 0 1 2.2.9c0 1.5-2.2 2.9-2.2 2.9z"/>
+  </symbol>
+
+  <symbol id="ico-kamera" viewBox="0 0 32 32">
+    <rect x="4" y="10" width="24" height="17" rx="3.5"/>
+    <path d="M11.6 10l1.8-3.2h5.2l1.8 3.2"/>
+    <circle cx="16" cy="18.5" r="5"/>
+    <circle cx="23.4" cy="14.2" r=".9" fill="currentColor" stroke="none"/>
+  </symbol>
+
+  <symbol id="ico-essen" viewBox="0 0 32 32">
+    <circle cx="16" cy="16.5" r="6.8"/><circle cx="16" cy="16.5" r="3.5"/>
+    <path d="M3.4 6v5.4M5.7 6v5.4M8 6v5.4"/><path d="M3.4 11.4h4.6"/><path d="M5.7 11.4V26"/>
+    <path d="M26 15.8V26"/><path d="M26 15.8c1.9 0 1.9-9.8 0-9.8s-1.9 9.8 0 9.8z"/>
+  </symbol>
+
+  <symbol id="ico-disco" viewBox="0 0 32 32">
+    <path d="M16 9V4.5"/><circle cx="16" cy="18" r="9"/>
+    <ellipse cx="16" cy="18" rx="4" ry="9"/>
+    <path d="M7 18h18M8.3 13.2h15.4M8.3 22.8h15.4"/>
+  </symbol>
+
+  <symbol id="ico-snack" viewBox="0 0 32 32">
+    <path d="M4.5 17.5h23a11.5 11.5 0 0 1-23 0z"/>
+    <circle cx="11" cy="13.6" r="2.2"/><circle cx="16.5" cy="11.4" r="2.2"/>
+    <circle cx="21.8" cy="14" r="2.2"/>
+    <path d="M16 8.6s-2.1-1.4-2.1-2.8a1.25 1.25 0 0 1 2.1-.85 1.25 1.25 0 0 1 2.1.85c0 1.4-2.1 2.8-2.1 2.8z"/>
+  </symbol>
+
+</defs></svg>
+
+<!-- ══════════════════ Deckblatt ══════════════════ -->
+<div id="gate">
+  <picture>
+    <source srcset="images/lavenda1.webp" type="image/webp">
+    <img src="images/lavenda1.jpg" alt="" width="1024" height="639" fetchpriority="high">
+  </picture>
+  <div class="gate-scrim"></div>
+
+  <div class="gate-inner">
+    <p class="gate-kicker">Wir heiraten</p>
+    <h1 class="gate-names">Isabelle &amp; Yannis</h1>
+    <div class="rule rule-light"></div>
+    <p class="gate-meta">
+      <span class="js-datum-lang">Das Datum folgt</span><br>
+      Lavenda am See · Berlin
+    </p>
+    <button type="button" class="btn-enter" id="gate-open">Einladung öffnen</button>
+  </div>
+</div>
+
+
+<!-- ══════════════════ Inhalt ══════════════════ -->
+<main id="main" tabindex="-1" hidden>
+
+  <nav class="nav" aria-label="Seitenbereiche">
+    <div class="nav-inner">
+      <a href="#willkommen">Willkommen</a>
+      <a href="#ablauf">Ablauf</a>
+      <a href="#essen">Essen</a>
+      <a href="#dresscode">Dresscode</a>
+      <a href="#musik">Musik</a>
+      <a href="#location">Anfahrt</a>
+      <a href="#infos">Gut zu wissen</a>
+      <a href="#zusagen">Zusagen</a>
+    </div>
+  </nav>
+
+  <div class="wrap">
+
+    <!-- ── Masthead ── -->
+    <header class="masthead reveal">
+      <p class="kicker"><span class="js-datum-lang">Datum folgt</span></p>
+      <p class="script-names">Isabelle &amp; Yannis</p>
+      <div class="rule"></div>
+      <p class="masthead-sub">Lavenda am See · Neue Kreisstraße 50 · 14109 Berlin</p>
+    </header>
+
+
+    <!-- ── Willkommen ── -->
+    <section id="willkommen" class="section reveal">
+      <h2>Willkommen</h2>
+      <div class="rule"></div>
+      <p class="lead">
+        Wir laden euch herzlich ein, unseren großen Tag mit uns zu feiern!
+      </p>
+      <p class="lead">
+        Wir möchten nicht nur „Ja“ zueinander sagen, sondern diesen schönen Meilenstein
+        auch mit einem entspannten Fest voller gutem Essen, kühlen Drinks und großartiger
+        Stimmung begehen. Wir freuen uns riesig darauf, mit unseren liebsten Menschen
+        anzustoßen und einen unvergesslichen Tag zu verbringen.
+      </p>
+      <p class="lead">
+        Es wird ein langer Tag: Um 15:00 Uhr geben wir uns am Wasser das Ja-Wort,
+        danach bleibt reichlich Zeit zum Anstoßen, Essen und Tanzen — bis weit in
+        die Nacht. Damit ihr die Trauung nicht verpasst, seid bitte schon
+        <strong>bis 14:30 Uhr</strong> da. Was wann passiert, steht im
+        <a href="#ablauf">Tagesablauf</a>.
+      </p>
+      <p class="signature">Isabelle &amp; Yannis</p>
+
+      <figure class="figure">
+        <picture>
+          <source srcset="images/lavenda2.webp" type="image/webp">
+          <img src="images/lavenda2.jpg" alt="Das Lavenda am See, unsere Hochzeitslocation"
+               width="1024" height="639" loading="lazy" decoding="async">
+        </picture>
+      </figure>
+    </section>
+
+
+    <!-- ── Countdown ── -->
+    <section id="countdown" class="section reveal" hidden>
+      <h2>Bis dahin sind es noch</h2>
+      <div class="rule"></div>
+
+      <div class="countdown" role="timer" aria-live="off">
+        <div class="cd-unit"><span class="cd-num" data-cd="tage">–</span><span class="cd-label">Tage</span></div>
+        <div class="cd-unit"><span class="cd-num" data-cd="stunden">–</span><span class="cd-label">Stunden</span></div>
+        <div class="cd-unit"><span class="cd-num" data-cd="minuten">–</span><span class="cd-label">Minuten</span></div>
+        <div class="cd-unit"><span class="cd-num" data-cd="sekunden">–</span><span class="cd-label">Sekunden</span></div>
+      </div>
+
+      <p class="cd-note js-countdown-note"></p>
+
+      <p class="btn-row">
+        <button type="button" class="btn" id="btn-ics">Termin in den Kalender</button>
+        <button type="button" class="btn btn-ghost" id="btn-share">Seite teilen</button>
+      </p>
+    </section>
+
+
+    <!-- ── Tagesablauf ── -->
+    <section id="ablauf" class="section reveal">
+      <h2>Der Tagesablauf</h2>
+      <div class="rule"></div>
+
+      <!--
+        Eine Zeile ergänzen: einen <li>-Block kopieren und Zeit, Text und
+        Symbolnamen ändern. Verfügbare Symbole (oben im Kopf der Datei):
+        ico-bogen, ico-ringe, ico-sekt, ico-torte, ico-kamera, ico-essen,
+        ico-disco, ico-snack. Links und rechts wechseln sich von selbst ab.
+      -->
+
+      <ol class="timeline">
+        <li>
+          <span class="tl-ico"><svg viewBox="0 0 32 32" aria-hidden="true"><use href="#ico-bogen"/></svg></span>
+          <span class="tl-body">
+            <span class="tl-time">bis 14:30 Uhr</span>
+            <strong class="tl-title">Eintreffen der Gäste</strong>
+          </span>
+        </li>
+        <li>
+          <span class="tl-ico"><svg viewBox="0 0 32 32" aria-hidden="true"><use href="#ico-ringe"/></svg></span>
+          <span class="tl-body">
+            <span class="tl-time">15:00 Uhr</span>
+            <strong class="tl-title">Freie Trauung</strong>
+          </span>
+        </li>
+        <li>
+          <span class="tl-ico"><svg viewBox="0 0 32 32" aria-hidden="true"><use href="#ico-sekt"/></svg></span>
+          <span class="tl-body">
+            <span class="tl-time">16:00 Uhr</span>
+            <strong class="tl-title">Sektempfang</strong>
+          </span>
+        </li>
+        <li>
+          <span class="tl-ico"><svg viewBox="0 0 32 32" aria-hidden="true"><use href="#ico-torte"/></svg></span>
+          <span class="tl-body">
+            <span class="tl-time">16:30 Uhr</span>
+            <strong class="tl-title">Torte anschneiden</strong>
+          </span>
+        </li>
+        <li>
+          <span class="tl-ico"><svg viewBox="0 0 32 32" aria-hidden="true"><use href="#ico-kamera"/></svg></span>
+          <span class="tl-body">
+            <span class="tl-time">17:00 Uhr</span>
+            <strong class="tl-title">Gemeinsame Fotos</strong>
+          </span>
+        </li>
+        <li>
+          <span class="tl-ico"><svg viewBox="0 0 32 32" aria-hidden="true"><use href="#ico-essen"/></svg></span>
+          <span class="tl-body">
+            <span class="tl-time">19:00 Uhr</span>
+            <strong class="tl-title">Abendessen</strong>
+          </span>
+        </li>
+        <li>
+          <span class="tl-ico"><svg viewBox="0 0 32 32" aria-hidden="true"><use href="#ico-disco"/></svg></span>
+          <span class="tl-body">
+            <span class="tl-time">21:00 Uhr</span>
+            <strong class="tl-title">Hochzeitstanz &amp; Party</strong>
+          </span>
+        </li>
+        <li>
+          <span class="tl-ico"><svg viewBox="0 0 32 32" aria-hidden="true"><use href="#ico-snack"/></svg></span>
+          <span class="tl-body">
+            <span class="tl-time">00:00 Uhr</span>
+            <strong class="tl-title">Snack</strong>
+          </span>
+        </li>
+      </ol>
+
+    </section>
+
+
+    <!-- ── Essen & Trinken ── -->
+    <section id="essen" class="section reveal">
+      <h2>Essen &amp; Trinken</h2>
+      <div class="rule"></div>
+
+      <!--
+        ────────────────────────────────────────────────────────────
+        SOBALD DAS MENÜ STEHT:
+        Den <div class="pending"> … </div> unten löschen und dafür
+        diese Liste einsetzen:
+
+        <ul class="menu">
+          <li>Frische Sommersalate &amp; Antipasti</li>
+          <li>Vegetarische Spezialitäten</li>
+          <li>Geflügel- und Fleischgerichte</li>
+          <li>Beilagen &amp; hausgemachte Brotvariationen</li>
+          <li>Dessert-Variationen</li>
+        </ul>
+        ────────────────────────────────────────────────────────────
+      -->
+
+      <div class="pending">
+        <span class="badge">Folgt in Kürze</span>
+        <p>
+          Das Menü steht noch nicht final fest. Eines können wir aber versprechen:
+          Hungrig geht niemand nach Hause.
+        </p>
+      </div>
+    </section>
+
+
+    <!-- ── Dresscode ── -->
+    <section id="dresscode" class="section reveal">
+      <h2>Dresscode</h2>
+      <div class="rule"></div>
+
+      <p class="script-accent">Summer Chic</p>
+
+      <p class="lead">
+        Feiert mit uns in eurem schönsten sommerlichen Outfit. Wir freuen uns
+        über elegante, luftige Looks — gern in einem dieser Farbtöne:
+      </p>
+
+      <ul class="swatches">
+        <li><span class="swatch" style="--farbe: #e9a8ae"></span>Rosa</li>
+        <li><span class="swatch" style="--farbe: #f0c976"></span>Gelb</li>
+        <li><span class="swatch" style="--farbe: #a6c3dd"></span>Hellblau</li>
+        <li><span class="swatch" style="--farbe: #a7c6ae"></span>Mintgrün</li>
+      </ul>
+
+      <p class="note">
+        Die Pastelltöne sind eine Empfehlung, kein Muss — orientiert euch
+        einfach daran, wenn ihr mögt.
+      </p>
+
+      <div class="dress-no">
+        <p><span>Kein Weiß</span>für die Damen</p>
+        <p><span>Kein Beige</span>für die Herren</p>
+      </div>
+    </section>
+
+
+    <!-- ── Musikwünsche ── -->
+    <section id="musik" class="section reveal">
+      <h2>Musikwünsche</h2>
+      <div class="rule"></div>
+
+      <p class="lead">
+        Welches Lied muss an unserem Tag laufen? Tragt es in unsere
+        Wunsch-Playlist ein — wir freuen uns über alles, was euch auf die
+        Tanzfläche bringt.
+      </p>
+
+      <p class="hinweis">
+        <strong>Bitte rechtzeitig eintragen.</strong>
+        Diese Playlist sammelt nur eure Wünsche — wir übertragen sie später
+        von Hand in die Playlist für den Abend. Was erst kurz vor der Hochzeit
+        dazukommt, schafft es nicht mehr auf die Tanzfläche.
+      </p>
+
+      <div class="spotify">
+        <iframe
+          src="https://open.spotify.com/embed/playlist/1bLXYBX9P0854Ecd8hD10j?utm_source=generator&amp;theme=0"
+          title="Unsere Wunsch-Playlist bei Spotify"
+          width="100%" height="380" loading="lazy"
+          allow="clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+
+      <p class="btn-row">
+        <a class="btn" target="_blank" rel="noopener"
+           href="https://open.spotify.com/playlist/1bLXYBX9P0854Ecd8hD10j">Playlist in Spotify öffnen</a>
+      </p>
+    </section>
+
+
+    <!-- ── Location & Anfahrt ── -->
+    <section id="location" class="section reveal">
+      <h2>Location &amp; Anfahrt</h2>
+      <div class="rule"></div>
+
+      <div class="address-card">
+        <p class="address-name">Lavenda am See</p>
+        <p class="address-lines">Neue Kreisstraße 50<br>14109 Berlin</p>
+        <p class="btn-row">
+          <a class="btn" target="_blank" rel="noopener"
+             href="https://www.google.com/maps/search/?api=1&amp;query=Lavenda%20am%20See%2C%20Neue%20Kreisstra%C3%9Fe%2050%2C%2014109%20Berlin">In Google Maps öffnen</a>
+          <a class="btn btn-ghost" target="_blank" rel="noopener"
+             href="https://maps.apple.com/?q=Lavenda%20am%20See%2C%20Neue%20Kreisstra%C3%9Fe%2050%2C%2014109%20Berlin">In Apple Karten öffnen</a>
+        </p>
+      </div>
+
+      <div class="info-grid">
+        <div class="info-card">
+          <h3>Mit dem Auto</h3>
+          <p>
+            An der Location stehen Parkplätze zur Verfügung. Bildet, wenn es geht,
+            Fahrgemeinschaften — das macht die Anfahrt entspannter und die
+            Parksituation übersichtlicher.
+          </p>
+        </div>
+        <div class="info-card">
+          <h3>Öffentlich</h3>
+          <p>
+            Die Location liegt im Berliner Südwesten und ist mit S-Bahn und Bus
+            erreichbar. Plant die Rückfahrt am besten vorher — nachts fahren die
+            Linien seltener.
+          </p>
+        </div>
+        <div class="info-card">
+          <h3>Taxi &amp; Co.</h3>
+          <p>
+            Taxi und Fahrdienste fahren die Adresse direkt an. Wer feiern möchte,
+            ohne auf die Uhr zu schauen, fährt damit am besten.
+          </p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ── Gut zu wissen ── -->
+    <section id="infos" class="section reveal">
+      <h2>Gut zu wissen</h2>
+      <div class="rule"></div>
+
+      <!-- TODO: Texte gegenlesen und an eure Wünsche anpassen -->
+      <div class="faq">
+        <details>
+          <summary>Woran sollten wir beim Outfit noch denken?</summary>
+          <p>
+            Wir feiern teils draußen am Wasser: Denkt an Schuhe, mit denen ihr
+            auf Rasen und Kies gut zurechtkommt, und an eine leichte Jacke für
+            den Abend. Alles Weitere steht beim <a href="#dresscode">Dresscode</a>.
+          </p>
+        </details>
+
+        <details>
+          <summary>Was ist mit Geschenken?</summary>
+          <p>
+            Euer Kommen ist uns das Wichtigste. Wer uns trotzdem etwas mitgeben
+            möchte: Wir sparen auf unsere gemeinsamen Pläne und freuen uns über
+            einen Beitrag dazu mehr als über ein weiteres Küchengerät.
+          </p>
+        </details>
+
+        <details>
+          <summary>Dürfen wir fotografieren?</summary>
+          <p>
+            Sehr gerne — mit einer Bitte: Während der Trauung lasst die Handys
+            bitte stecken. Diesen Moment übernimmt unser Fotograf, damit wir beim
+            Zurückschauen Gesichter sehen und keine Bildschirme.
+          </p>
+        </details>
+
+        <details>
+          <summary>Wo können wir übernachten?</summary>
+          <p>
+            In der Umgebung gibt es mehrere Hotels und Pensionen. Wenn ihr von
+            weiter weg anreist und eine Empfehlung braucht, meldet euch — wir
+            helfen gerne bei der Suche.
+          </p>
+        </details>
+
+        <details>
+          <summary>Wir möchten eine Rede oder Überraschung beitragen</summary>
+          <p>
+            Wunderbar! Sprecht das bitte vorher ab — vornehmlich mit unseren
+            Trauzeugen, damit alles seinen Platz im Ablauf findet und nichts
+            untergeht.
+          </p>
+        </details>
+      </div>
+    </section>
+
+
+    <!-- ── Zusagen ── -->
+    <section id="zusagen" class="section reveal">
+      <h2>Sagt uns Bescheid</h2>
+      <div class="rule"></div>
+
+      <div class="rsvp">
+        <p class="lead">
+          Damit wir gut planen können, sagt uns bitte bis zum
+          <strong class="js-rsvp-frist">… (Frist folgt)</strong>, ob ihr dabei seid.
+        </p>
+        <p class="rsvp-wa">Schreibt uns dafür einfach bei WhatsApp.</p>
+      </div>
+    </section>
+
+  </div><!-- /.wrap -->
+
+
+  <footer class="footer">
+    <div class="rule"></div>
+    <p class="script-names footer-names">Isabelle &amp; Yannis</p>
+    <p class="footer-meta">
+      <span class="js-datum-lang">Datum folgt</span> · Lavenda am See, Berlin
+    </p>
+    <p class="footer-meta">Wir freuen uns auf euch.</p>
+  </footer>
+
+  <button type="button" class="to-top" id="to-top" aria-label="Nach oben" hidden>↑</button>
+
+</main>
+
+<script src="js/main.js?v=4"></script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+# Windows / Google Drive
+desktop.ini
+Thumbs.db
+ehthumbs.db
+$RECYCLE.BIN/
+*.lnk
+
+# macOS
+.DS_Store
+._*
+
+# Editoren
+.vscode/
+.idea/
+*.swp
+*~
+
+# Alte Fassung, nur lokal
+archiv/
+
+# Claude-Code-Konfiguration, nur lokal
+.claude/
