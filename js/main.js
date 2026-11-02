@@ -20,13 +20,13 @@
     // Format: 'JJJJ-MM-TTTHH:MM'   (das T in der Mitte gehört dazu)
     // Steht hier null, schreibt die Seite überall „Das Datum folgt“
     // und blendet den Countdown aus.
-    beginn: '2027-07-01T14:00',
+    beginn: '2027-07-01T15:00',
     ende:   '2027-07-02T02:00',   // ungefähres Ende, nur für den Kalendereintrag
 
     // ── Zusagen ──────────────────────────────────────────────
     // Rückmeldefrist. Format wie oben, nur ohne Uhrzeit: 'JJJJ-MM-TT'
     // Bleibt sie null, steht im Text „rechtzeitig“ statt eines Datums.
-    rsvpFrist: null,  // z. B. '2026-05-31'
+    rsvpFrist: '2027-04-01',
 
     // ── Ort ──────────────────────────────────────────────────
     ortName:    'Lavenda am See',
@@ -62,9 +62,9 @@
       weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'
     });
     var uhr = d.toLocaleTimeString('de-DE', { hour: '2-digit', minute: '2-digit' });
-    // Geschuetzte Leerzeichen: "ab 14:00 Uhr" soll auf dem Handy
+    // Geschuetzte Leerzeichen: "Beginn 15:00 Uhr" soll auf dem Handy
     // nicht mitten in der Uhrzeit umbrechen.
-    return tag + ' · ab ' + uhr + ' Uhr';
+    return tag + ' · Beginn ' + uhr + ' Uhr';
   }
 
   function setzeDatum() {

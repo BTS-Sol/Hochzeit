@@ -617,20 +617,20 @@ a:hover { color: var(--gold); }
 .swatches {
   list-style: none;
   padding: 0;
-  margin: 34px 0 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 24px;
+  margin: 34px auto 0;
+  max-width: 420px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
 }
 
 .swatches li {
-  width: 88px;
   text-align: center;
-  font-size: .76rem;
-  letter-spacing: .1em;
+  font-size: .74rem;
+  letter-spacing: .07em;
   text-transform: uppercase;
   color: var(--ink-soft);
+  white-space: nowrap;
 }
 
 .swatch {
@@ -667,6 +667,16 @@ a:hover { color: var(--gold); }
 }
 
 .dress-no span { font-weight: 500; color: var(--ink); }
+
+
+/* ═══════════════ Noch fehlende Angabe ═══════════════ */
+
+.platzhalter {
+  color: var(--ink-mute);
+  font-style: italic;
+  border-bottom: 1px dashed var(--gold);
+  padding-bottom: 1px;
+}
 
 
 /* ═══════════════ Musik ═══════════════ */
@@ -947,9 +957,9 @@ a:hover { color: var(--gold); }
     height: 40px;
   }
 
-  .swatches { gap: 16px; }
-  .swatches li { width: 72px; }
-  .swatch { width: 50px; height: 50px; }
+  .swatches { gap: 8px; }
+  .swatches li { font-size: .6rem; letter-spacing: .02em; }
+  .swatch { width: 46px; height: 46px; margin-bottom: 9px; }
   .hinweis { padding: 18px 18px; }
 }
 

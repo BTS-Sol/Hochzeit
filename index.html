@@ -39,7 +39,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&amp;family=Great+Vibes&amp;family=Montserrat:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="css/style.css?v=4">
+<link rel="stylesheet" href="css/style.css?v=5">
 
 <noscript>
   <!-- Ohne JavaScript: Deckblatt überspringen, Inhalt sofort zeigen -->
@@ -107,6 +107,11 @@
     <circle cx="11" cy="13.6" r="2.2"/><circle cx="16.5" cy="11.4" r="2.2"/>
     <circle cx="21.8" cy="14" r="2.2"/>
     <path d="M16 8.6s-2.1-1.4-2.1-2.8a1.25 1.25 0 0 1 2.1-.85 1.25 1.25 0 0 1 2.1.85c0 1.4-2.1 2.8-2.1 2.8z"/>
+  </symbol>
+
+  <symbol id="ico-ende" viewBox="0 0 32 32">
+    <path d="M23 19.6A8.6 8.6 0 0 1 12.4 9a8.6 8.6 0 1 0 10.6 10.6z"/>
+    <path d="M23.4 6.6l.95 2.25 2.25.95-2.25.95-.95 2.25-.95-2.25-2.25-.95 2.25-.95z"/>
   </symbol>
 
 </defs></svg>
@@ -221,7 +226,8 @@
         Eine Zeile ergänzen: einen <li>-Block kopieren und Zeit, Text und
         Symbolnamen ändern. Verfügbare Symbole (oben im Kopf der Datei):
         ico-bogen, ico-ringe, ico-sekt, ico-torte, ico-kamera, ico-essen,
-        ico-disco, ico-snack. Links und rechts wechseln sich von selbst ab.
+        ico-disco, ico-snack, ico-ende. Links und rechts wechseln sich
+        von selbst ab.
       -->
 
       <ol class="timeline">
@@ -281,6 +287,13 @@
             <strong class="tl-title">Snack</strong>
           </span>
         </li>
+        <li>
+          <span class="tl-ico"><svg viewBox="0 0 32 32" aria-hidden="true"><use href="#ico-ende"/></svg></span>
+          <span class="tl-body">
+            <span class="tl-time">02:00 Uhr</span>
+            <strong class="tl-title">Ende</strong>
+          </span>
+        </li>
       </ol>
 
     </section>
@@ -331,7 +344,7 @@
 
       <ul class="swatches">
         <li><span class="swatch" style="--farbe: #e9a8ae"></span>Rosa</li>
-        <li><span class="swatch" style="--farbe: #f0c976"></span>Gelb</li>
+        <li><span class="swatch" style="--farbe: #f4dfa0"></span>Hellgelb</li>
         <li><span class="swatch" style="--farbe: #a6c3dd"></span>Hellblau</li>
         <li><span class="swatch" style="--farbe: #a7c6ae"></span>Mintgrün</li>
       </ul>
@@ -362,8 +375,7 @@
       <p class="hinweis">
         <strong>Bitte rechtzeitig eintragen.</strong>
         Diese Playlist sammelt nur eure Wünsche — wir übertragen sie später
-        von Hand in die Playlist für den Abend. Was erst kurz vor der Hochzeit
-        dazukommt, schafft es nicht mehr auf die Tanzfläche.
+        von Hand in die Playlist für den Abend.
       </p>
 
       <div class="spotify">
@@ -436,9 +448,11 @@
         <details>
           <summary>Woran sollten wir beim Outfit noch denken?</summary>
           <p>
-            Wir feiern teils draußen am Wasser: Denkt an Schuhe, mit denen ihr
-            auf Rasen und Kies gut zurechtkommt, und an eine leichte Jacke für
-            den Abend. Alles Weitere steht beim <a href="#dresscode">Dresscode</a>.
+            Wir feiern teils draußen am Wasser, auf Rasen. Nehmt euch gern ein
+            zweites Paar Schuhe zum Wechseln mit — spätestens beim Tanzen seid
+            ihr froh darüber. Und denkt an etwas Leichtes für die Schultern,
+            abends am Wasser wird es frisch. Alles Weitere steht beim
+            <a href="#dresscode">Dresscode</a>.
           </p>
         </details>
 
@@ -454,27 +468,31 @@
         <details>
           <summary>Dürfen wir fotografieren?</summary>
           <p>
-            Sehr gerne — mit einer Bitte: Während der Trauung lasst die Handys
-            bitte stecken. Diesen Moment übernimmt unser Fotograf, damit wir beim
-            Zurückschauen Gesichter sehen und keine Bildschirme.
+            Während der Trauung möchten wir euch um eines bitten: Lasst die
+            Handys einmal in der Tasche. Diesen Moment hält unsere Fotografin
+            für uns fest — und wir möchten beim Zurückschauen in eure Gesichter
+            blicken, nicht in Bildschirme.
+          </p>
+          <p>
+            Danach gilt das Gegenteil: Wir freuen uns über jedes Bild. Wer Lust
+            hat, bringt gern eine Kamera mit, und wer lieber zum Handy greift,
+            tut das genauso gern. Ganz wie ihr mögt.
           </p>
         </details>
 
         <details>
           <summary>Wo können wir übernachten?</summary>
           <p>
-            In der Umgebung gibt es mehrere Hotels und Pensionen. Wenn ihr von
-            weiter weg anreist und eine Empfehlung braucht, meldet euch — wir
-            helfen gerne bei der Suche.
-          </p>
-        </details>
-
-        <details>
-          <summary>Wir möchten eine Rede oder Überraschung beitragen</summary>
-          <p>
-            Wunderbar! Sprecht das bitte vorher ab — vornehmlich mit unseren
-            Trauzeugen, damit alles seinen Platz im Ablauf findet und nichts
-            untergeht.
+            <!--
+              SOBALD DAS HOTEL FESTSTEHT:
+              "in einem Hotel ganz in der Nähe <span …>(Name folgt)</span>"
+              ersetzen durch z. B.  im <strong>Hotel Seeblick</strong>
+            -->
+            Wir selbst übernachten in einem Hotel ganz in der Nähe
+            <span class="platzhalter">(Name folgt)</span>. Wer mag, nimmt sich
+            dort ebenfalls ein Zimmer — oder eines in der Umgebung, da gibt es
+            einiges. Wenn ihr von weiter weg anreist und eine Empfehlung braucht,
+            meldet euch gern bei uns.
           </p>
         </details>
       </div>
@@ -489,7 +507,8 @@
       <div class="rsvp">
         <p class="lead">
           Damit wir gut planen können, sagt uns bitte bis zum
-          <strong class="js-rsvp-frist">… (Frist folgt)</strong>, ob ihr dabei seid.
+          <strong class="js-rsvp-frist">… (Frist folgt)</strong>, ob ihr dabei seid
+          — oder ob ihr es leider nicht schafft.
         </p>
         <p class="rsvp-wa">Schreibt uns dafür einfach bei WhatsApp.</p>
       </div>
@@ -511,6 +530,6 @@
 
 </main>
 
-<script src="js/main.js?v=4"></script>
+<script src="js/main.js?v=5"></script>
 </body>
 </html>

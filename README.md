@@ -20,9 +20,9 @@ archiv/             alte Fassung, nicht Teil der Website
 Beides in **`js/main.js`**, ganz oben im Block `EUER HOCHZEITS-SETUP`:
 
 ```js
-beginn:    '2027-07-01T14:00',    // JJJJ-MM-TT + T + HH:MM
-ende:      '2027-07-02T02:00',    // ungefähres Ende, für den Kalendereintrag
-rsvpFrist: null,                  // z. B. '2027-05-31'
+beginn:    '2027-07-01T15:00',    // JJJJ-MM-TT + T + HH:MM
+ende:      '2027-07-02T02:00',    // Ende, auch für den Kalendereintrag
+rsvpFrist: '2027-04-01',          // JJJJ-MM-TT
 ```
 
 Das Datum steht nur hier. Von dort aus füllt es gleichzeitig das Deckblatt,
@@ -97,6 +97,7 @@ Spalte. Verfügbare Symbole — gezeichnet und ganz oben in `index.html` abgeleg
 | `ico-essen` | Gedeck mit Besteck |
 | `ico-disco` | Discokugel |
 | `ico-snack` | Schale mit Snacks |
+| `ico-ende` | Mond, für das Ende |
 
 ### Menü
 
@@ -109,6 +110,16 @@ Noch offen. Im Abschnitt `<section id="essen">` den Block
   <li>Vegetarische Spezialitäten</li>
 </ul>
 ```
+
+### Noch offene Angaben
+
+Zwei Stellen warten noch auf Inhalt und sind im Quelltext als
+`<span class="platzhalter">` markiert — kursiv mit gestricheltem Unterstrich,
+damit man sie auf der Seite sofort sieht:
+
+- **Hotel** unter „Gut zu wissen": `(Name folgt)`. Direkt darüber steht im
+  HTML-Kommentar, was genau zu ersetzen ist.
+- **Menü**, siehe oben.
 
 ### Dresscode
 
